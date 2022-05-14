@@ -5,6 +5,10 @@
 ` npm install; npm start;`
 
 
+### Demo / code walkthrough:
+https://drive.google.com/file/d/1O76Nrv9j2akHKtcYPXa_196NytCOwZe4/view?usp=sharing
+
+
 #### The challenge/task
 - [x] Build the Sidebar nav and Account Settings popover with the menu
 - [x] Clicking `Lists` should update the URL to `/lists` and just show a blank page with the text "this is the lists page".
