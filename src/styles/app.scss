@@ -1,0 +1,192 @@
+@import 'globals';
+
+
+.App {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 100vh;
+  width: 100%;
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: $sidebar-width;
+
+    .mobile-size {
+      display: none;
+    }
+  }
+
+  .app-content {
+    width: auto;
+    padding: 30px;
+  }
+
+  /* Mobile layout */
+  @media only screen and (max-width: $mobile-max-width) {
+    flex-direction: column;
+    $space-between-items: 20px;
+
+    .sidebar {
+      position: relative;
+      flex-direction: row;
+      width: auto;
+      padding: 0 $space-between-items;
+      height: 0.8 * $sidebar-width;
+      
+      .full-size {
+        display: none;
+      }
+      .mobile-size {
+        display: inherit;
+      }
+
+      .nav-menu.mobile-size {
+        position: absolute;
+        right: 0.5 * $space-between-items;
+        top: 0.7 * $sidebar-width;
+      }
+
+      > div {
+        display: inherit;
+      }
+
+      .account-menu {
+        margin-right: $space-between-items;
+      }
+    }
+  }
+  /* Mobile layout ends here */
+
+}
+
+img {
+  &.user-icon {
+    @include user-icon($user-icon-big);
+    border: 2px solid white;
+    object-fit: cover;
+    object-position: center;
+
+    &.small {
+      @include user-icon($user-icon-small);
+    }
+  }
+
+  &.contactout-logo {
+    height: $contact-out-logo;
+    width: $contact-out-logo;
+  }
+
+}
+
+.sidebar {
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  background: $sidebar-color;
+  width: $sidebar-width;
+  padding: 20px 0 150px;
+
+  .nav-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    flex-direction: column;
+
+    .menu-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      $space-between: 2px;
+      height: 50px;
+      width: 50px;
+      background: $primary-color;
+      border-radius: 3px;
+      margin-bottom: 10px;
+      padding: $space-between 0;
+
+      &:hover {
+        background: $primary-color-highlight;
+      }
+
+      .menu-item-icon {
+        height: 15px;
+        width: 15px;
+      }
+
+      .menu-item-label {
+        color: white;
+        margin-top: 2 * $space-between;
+
+        svg path {
+          fill: white;
+        }
+      }
+    }
+  }
+}
+
+.account-menu {
+  .context-menu-content {
+    width: 320px;
+  }
+
+  .account-details {
+    display: flex;
+    flex-direction: column;
+
+    hr {
+      width: 100%;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: row;
+    }
+    .account-name {
+      line-height: $user-icon-small;
+    }
+
+    .account-actions {
+      display: flex;
+      width: 100%;
+      text-align: left;
+
+      > div {
+        width: 50%;
+      }
+    }
+
+    .account-menu-item {
+      $account-menu-item-size: 25px;
+      height: $account-menu-item-size;
+      line-height: $account-menu-item-size;
+      font-size: 0.75em;
+
+      &.active, &:hover {
+        font-weight: bold;
+
+        .label {
+          .underlined {
+            text-decoration-color: $secondary-color;
+            text-decoration-line: underline;
+            text-underline-offset: 1px;
+            text-decoration-thickness: 1.5px;
+          }
+          .active-chevron {
+            font-size: 1.5em;
+            color: $secondary-color;
+            text-decoration: none;
+            float: right;
+            margin-right: 15px;
+            line-height: $account-menu-item-size;
+          }
+        }
+      }
+    }
+  }
+
+}
