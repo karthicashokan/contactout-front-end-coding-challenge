@@ -1,8 +1,11 @@
-# ContactOut Front End Coding Challenge
+## ContactOut Front End Coding Challenge
 
 
+#### To run:
+` npm install; npm start;`
 
-### The challenge/task
+
+#### The challenge/task
 - [x] Build the Sidebar nav and Account Settings popover with the menu
 - [x] Clicking `Lists` should update the URL to `/lists` and just show a blank page with the text "this is the lists page".
 - [x] Clicking `Search` should update the URL to `/search` and just show a blank page with the text "this is the search page"
